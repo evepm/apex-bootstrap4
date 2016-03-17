@@ -1,5 +1,4 @@
-/*General rules*/
-
+/* General rules */
 .text_field, .password, .selectlist, .multi_selectlist, textarea.textarea {
     @extend .form-control;
 }
@@ -18,54 +17,28 @@ input.file {
     @extend .form-control-file;
 }
 
-input[type=checkbox], input[type=radio] {
-    margin-right: 5px;
+/* Hidden label */
+.ab-input-sr-only label {
+    @include sr-only();
 }
 
-label {
-    margin-right: 5px;
-}
-
-/*Hidden label*/
-
-div.sr-only {
-    position: relative;
-    width: auto;
-    height: auto;
-    margin-bottom: 1rem;
-    &>label {
-        @extend .sr-only;
-    }
-}
-
-/*Item size*/
-
-.form-group.form-control-lg, .form-group.form-control-sm {
-    padding: 0;
-    font-size: 1rem;
-    line-height: 1.5;
-}
-
-.form-group.form-control-lg {
+/* Sizes */
+&.ab-form-control-lg {
     .text_field, .password, .selectlist, .multi_selectlist, textarea.textarea {
         @extend .form-control-lg;
     }
 }
 
-.form-group.form-control-sm {
+&.ab-form-control-sm {
     .text_field, .password, .selectlist, .multi_selectlist, textarea.textarea {
         @extend .form-control-sm;
     }
 }
 
-/*Item validation*/
-
+/* Item validation */
 .form-group.has-success {
     .text_field, .password, .selectlist, .multi_selectlist, textarea.textarea {
         @extend .form-control-success;
-    }
-    label {
-        @extend .form-control-label;
     }
 }
 
@@ -73,54 +46,33 @@ div.sr-only {
     .text_field, .password, .selectlist, .multi_selectlist, textarea.textarea {
         @extend .form-control-warning;
     }
-    label {
-        @extend .form-control-label;
-    }
 }
 
 .form-group.has-danger {
     .text_field, .password, .selectlist, .multi_selectlist, textarea.textarea {
         @extend .form-control-danger;
     }
+}
+
+.form-group.has-success, .form-group.has-warning, .form-group.has-danger {
     label {
         @extend .form-control-label;
     }
 }
 
-/*Cutom form*/
+/* Checkbox and radios */
+input[type=checkbox], input[type=radio] {
+    margin-right: 0.5rem;
+}
 
-/*Checkbox*/
+/* Help */
+.ab-field-tooltip, .ab-field-popover {
+    & > label[data-toggle] {
+        text-decoration: underline;
+    }
+}
 
-.custom-form {
-  .checkbox_group{
-    @extend .c-input;
-    @extend .c-checkbox;
-    label {
-      @extend .c-input;
-      &::before {
-          content: "";
-          @extend .c-indicator;
-      }
-    }
-  }
-  .radio_group {
-    @extend .c-input;
-    @extend .c-radio;
-    td {
-      @extend .c-input;
-    }
-    label {
-      //@extend .c-input;
-      &::before {
-        content: "";
-        @extend .c-indicator;
-      }
-    }
-  }
-  .selectlist {
-    @extend .c-select;
-  }
-  .file {
-    @extend .file-custom;
-  }
+/* Input Groups */
+.input-group-addon > label {
+    @include hide();
 }

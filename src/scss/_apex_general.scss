@@ -1,16 +1,40 @@
-body.ab-navbar-fixed-top {
+body[data-spy] {
+    position: relative;
+}
+
+.ab-navbar-fixed-top {
     margin-top: 3rem;
 }
 
-.main-container .ab-region {
-    padding-top: 4rem;
-}
-
 .ab-region-title-hidden .ab-region-title {
-    @extend .hidden-xs-up;
+    @include hide();
 }
 
-body.ab-container-fluid .main-container>.container{
-    max-width: initial;
-    @extend .container-fluid;
+.ab-container-fluid .ab-main > .container {
+    @include make-container();
+    max-width: 100%;
+}
+
+.ab-region.collapse {
+    display: none;
+
+    &.in {
+        display: block;
+    }
+}
+
+// Blank Region
+.ab-blank {
+    display: inline-block;
+}
+
+// Pushpin
+.pin-top,
+.pin-bottom {
+    position: relative;
+}
+
+.pinned {
+    position: fixed !important;
+    z-index: 1;
 }
